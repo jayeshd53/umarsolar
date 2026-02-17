@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <!-- improved viewport for mobile -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <title>Umar Solar | Maharashtra's Premium Solar Partner</title>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -83,9 +84,38 @@
         }
         .btn-scale { transition: transform 0.2s; }
         input, select, textarea { font-size: 16px; } /* prevent zoom on mobile */
-        /* map container responsive */
-        .map-container { position: relative; width: 100%; padding-bottom: 66%; /* 450/600 ≈ 0.66 */ height: 0; overflow: hidden; border-radius: 1.5rem; }
-        .map-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+        
+        /* Responsive map container – perfect aspect ratio and rounded corners */
+        .map-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 66%; /* 450/600 ≈ 0.66 – matches iframe proportions */
+            height: 0;
+            overflow: hidden;
+            border-radius: 1.5rem;
+            background: #e2e8f0; /* fallback */
+        }
+        .map-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        /* ensure footer links are well spaced on mobile */
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem 1.5rem;
+        }
+        @media (max-width: 480px) {
+            .footer-links {
+                gap: 0.75rem 1rem;
+            }
+        }
     </style>
 </head>
 <body class="antialiased selection:bg-yellow-500/30">
@@ -195,10 +225,10 @@
         </div>
     </section>
 
-    <!-- ========== EXPERT SESSION + MAP + FOOTER (mobile optimized) ========= -->
+    <!-- ========== EXPERT SESSION + MAP (fully responsive) ========= -->
     <section id="booking" class="py-12 sm:py-20 px-4 bg-slate-50">
         <div class="max-w-6xl mx-auto flex flex-col lg:flex-row gap-6">
-            <!-- LEFT: Expert session card (unchanged structure but compact) -->
+            <!-- LEFT: Expert session card (compact) -->
             <div class="glass w-full p-5 sm:p-8 rounded-[2rem] shadow-lg" data-aos="fade-up">
                 <div class="flex justify-between items-center mb-3"><h3 class="text-xl sm:text-3xl font-bold">Expert session</h3><span class="bg-slate-900 text-white px-2 py-0.5 rounded-full text-[0.6rem] font-bold">paid</span></div>
                 <form id="consultForm" class="space-y-3">
@@ -236,12 +266,12 @@
                 <!-- QR code placeholder (compact) -->
                 <div class="mt-4 p-3 bg-white/80 rounded-xl border-2 border-dashed border-orange-300 text-center">
                     <p class="text-[0.6rem] font-semibold uppercase">UPI QR Code</p>
-                    <div class="bg-slate-100 rounded-lg p-3 flex justify-center"><span class="text-xs text-slate-400"><img src="qr.jpg"></span></div>
+                    <div class="bg-slate-100 rounded-lg p-3 flex justify-center"><span class="text-xs text-slate-400">[QR image]</span></div>
                     <p class="text-[0.5rem] text-slate-400 mt-1">Scan with UPI app (laptop/desktop)</p>
                 </div>
             </div>
 
-            <!-- RIGHT: Quote card + Google Map (fully responsive) -->
+            <!-- RIGHT: Quote card + Google Map (perfectly aligned) -->
             <div class="glass w-full p-5 sm:p-8 rounded-[2rem] shadow-lg" data-aos="fade-up" data-aos-delay="100">
                 <h3 class="text-xl sm:text-3xl font-bold mb-4">Get a quote</h3>
                 <form id="reqForm" class="space-y-3">
@@ -253,7 +283,7 @@
                 </form>
                 <div class="mt-8">
                     <h3 class="text-xl sm:text-3xl font-bold mb-4">Locate Us!</h3>
-                    <!-- responsive map container -->
+                    <!-- responsive map container with perfect aspect -->
                     <div class="map-container rounded-3xl overflow-hidden shadow-lg">
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3768.3388307539294!2d77.3158253!3d19.180397700000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd1d7fdce758a0f%3A0x8ea7c82a5dce069f!2sUmar%20Solar%20Services!5e0!3m2!1sen!2sin!4v1771340903536!5m2!1sen!2sin" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
@@ -262,11 +292,12 @@
         </div>
     </section>
 
-    <!-- FOOTER (mobile optimized: vertical stack on small, row on larger) -->
+    <!-- FOOTER (mobile optimized: perfectly aligned with flex-wrap) -->
     <footer class="bg-slate-950 text-stone-500 py-10 px-4 text-center">
         <div class="max-w-7xl mx-auto">
             <h2 class="text-white text-xl sm:text-2xl font-black mb-4 tracking-tight uppercase">UMAR<span class="text-orange-600">SOLAR</span></h2>
-            <div class="flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-8 mb-5 text-xs font-bold uppercase tracking-wider">
+            <!-- footer links with responsive wrap and even spacing -->
+            <div class="footer-links mb-5 text-xs font-bold uppercase tracking-wider">
                 <a href="https://www.instagram.com/umar.solar/" class="hover:text-white text-red-400 transition">Instagram</a>
                 <a href="#" class="hover:text-white text-blue-400 transition">Facebook</a>
                 <a href="https://wa.me/9420531413" class="hover:text-white text-green-400 transition">WhatsApp</a>
@@ -308,7 +339,7 @@
                 setTimeout(() => gallery.scrollTo({ left: 0, behavior: 'smooth' }), 400);
         }, 2000);
 
-        // UPI & WhatsApp logic (unchanged)
+        // UPI & WhatsApp logic
         const payBtn = document.getElementById('payNowBtn');
         const consult = document.getElementById('consultTypeSelect');
         const receiptBtn = document.getElementById('submitReceiptBtn');
@@ -357,4 +388,3 @@
     <style>.px-4 { padding-left: max(0.75rem, env(safe-area-inset-left)); padding-right: max(0.75rem, env(safe-area-inset-right)); }</style>
 </body>
 </html>
-
