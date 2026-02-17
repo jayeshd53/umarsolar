@@ -89,6 +89,9 @@
         @media (min-width:768px){ .maps-frame { min-height: 360px; } }
         @media (min-width:1024px){ .maps-frame { min-height: 380px; } }
         footer a { transition: color 0.2s; }
+        /* about section bullet styling */
+        .about-bullet { @apply flex items-start gap-3 text-slate-700; }
+        .about-bullet svg { @apply w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5; }
     </style>
 </head>
 <body class="antialiased selection:bg-yellow-500/30">
@@ -123,6 +126,99 @@
             </div>
         </div>
     </nav>
+
+    <!-- ===== ADDED / ENHANCED ABOUT US SECTION ===== -->
+    <!-- combines original text: authorized vendor, presence, differentiators, knowledge platform, vision -->
+    <section class="py-20 sm:py-28 px-4 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <!-- top badge -->
+            <div class="text-center mb-6" data-aos="fade-up">
+                <span class="bg-orange-100 text-orange-800 text-xs font-bold px-4 py-2 rounded-full uppercase tracking-wider">About Umar Solar Services</span>
+            </div>
+
+            <!-- main about grid: left (credentials & presence) + right (differentiators) -->
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+                <!-- left: authorized, experience, presence -->
+                <div data-aos="fade-right">
+                    <div class="flex items-center gap-3 mb-5">
+                        <div class="w-12 h-12 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl flex items-center justify-center shadow-lg">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+                        </div>
+                        <h2 class="text-3xl sm:text-4xl font-black text-slate-900">MNRE & MSEDCL <span class="text-orange-600">authorized</span></h2>
+                    </div>
+                    <p class="text-lg text-slate-600 mb-6 leading-relaxed">
+                        Umar Solar Services is an authorized solar vendor under <strong class="text-slate-900">Maharashtra State Electricity Distribution Company Limited (MSEDCL)</strong> and <strong class="text-slate-900">Ministry of New and Renewable Energy (MNRE)</strong> for the PM Surya Ghar Muft Bijli Yojana.
+                    </p>
+                    <p class="text-slate-600 mb-8 leading-relaxed">
+                        With over <span class="font-extrabold text-orange-600">5+ years</span> of hands‑on industry experience, we specialize in solar rooftop design, engineering, and installation across Maharashtra. Our focus is not just installation — we deliver technically sound, structurally durable, and policy‑compliant solar solutions that are built to perform for 25+ years.
+                    </p>
+
+                    <!-- presence: cities grid -->
+                    <div class="bg-slate-50 p-6 rounded-3xl border border-slate-200 mb-6">
+                        <h3 class="text-xl font-bold text-slate-800 mb-3 flex items-center gap-2"><span class="w-2 h-2 bg-orange-500 rounded-full"></span> Our presence across Maharashtra</h3>
+                        <p class="text-sm text-slate-500 mb-3">Successfully serving clients in:</p>
+                        <div class="grid grid-cols-3 sm:grid-cols-4 gap-2 text-sm font-medium">
+                            <span class="bg-white px-3 py-2 rounded-xl shadow-sm text-center">Nanded</span>
+                            <span class="bg-white px-3 py-2 rounded-xl shadow-sm text-center">Purna</span>
+                            <span class="bg-white px-3 py-2 rounded-xl shadow-sm text-center">Parbhani</span>
+                            <span class="bg-white px-3 py-2 rounded-xl shadow-sm text-center">Latur</span>
+                            <span class="bg-white px-3 py-2 rounded-xl shadow-sm text-center">Satara</span>
+                            <span class="bg-white px-3 py-2 rounded-xl shadow-sm text-center">Hingoli</span>
+                            <span class="bg-white px-3 py-2 rounded-xl shadow-sm text-center">Mahur</span>
+                            <span class="bg-white px-3 py-2 rounded-xl shadow-sm text-center">Gangakhed</span>
+                        </div>
+                        <p class="text-slate-600 text-sm mt-4">⭐ Our clients have significantly reduced their electricity bills — achieving energy independence and long‑term savings.</p>
+                    </div>
+
+                    <!-- knowledge platform + vision (compact) -->
+                    <div class="bg-gradient-to-br from-amber-50 to-orange-50 p-6 rounded-3xl">
+                        <div class="flex gap-4 flex-wrap sm:flex-nowrap items-start">
+                            <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-md flex-shrink-0">
+                                <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+                            </div>
+                            <div>
+                                <h4 class="font-black text-slate-800">📘 Our Knowledge Platform</h4>
+                                <p class="text-sm text-slate-600 mb-2">Dedicated educational content on solar tech, government schemes, and practical insights. Empowering informed decisions.</p>
+                                <h4 class="font-black text-slate-800 mt-3">🔆 Our Vision</h4>
+                                <p class="text-sm text-slate-600">To contribute meaningfully toward India’s clean energy transition by delivering reliable, transparent, and technically strong solar solutions that create long‑term value.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- right: what makes us different + services -->
+                <div data-aos="fade-left">
+                    <!-- what makes different -->
+                    <div class="bg-slate-900 text-white p-8 rounded-[2.5rem] mb-8">
+                        <h3 class="text-2xl font-black mb-4 flex items-center gap-2">⚡ What makes us different</h3>
+                        <p class="text-sm text-slate-300 mb-5">We combine technical expertise, structural safety, and regulatory knowledge:</p>
+                        <ul class="space-y-3">
+                            <li class="flex gap-3"><span class="w-5 h-5 bg-orange-500 rounded-full flex items-center justify-center text-[10px] font-black mt-0.5 flex-shrink-0">✓</span><span>Accurate Load & Site Feasibility Assessment</span></li>
+                            <li class="flex gap-3"><span class="w-5 h-5 bg-orange-500 rounded-full flex items-center justify-center text-[10px] font-black mt-0.5 flex-shrink-0">✓</span><span>Professionally Designed Solar Structures</span></li>
+                            <li class="flex gap-3"><span class="w-5 h-5 bg-orange-500 rounded-full flex items-center justify-center text-[10px] font-black mt-0.5 flex-shrink-0">✓</span><span>Compliance with MNRE & MSEDCL Guidelines</span></li>
+                            <li class="flex gap-3"><span class="w-5 h-5 bg-orange-500 rounded-full flex items-center justify-center text-[10px] font-black mt-0.5 flex-shrink-0">✓</span><span>Proper Documentation & Subsidy Support</span></li>
+                            <li class="flex gap-3"><span class="w-5 h-5 bg-orange-500 rounded-full flex items-center justify-center text-[10px] font-black mt-0.5 flex-shrink-0">✓</span><span>Long‑Term Performance Focus (25+ years)</span></li>
+                        </ul>
+                        <p class="mt-6 text-slate-300 text-sm border-t border-white/10 pt-5 italic">“Solar is not just about installing panels — it is about designing a system that works efficiently, safely, and sustainably for decades.”</p>
+                    </div>
+
+                    <!-- services 1-5 (compact) -->
+                    <div class="bg-white border border-slate-200 p-6 rounded-3xl shadow-sm">
+                        <h3 class="text-xl font-bold text-slate-800 mb-3">🔧 Our services</h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm">
+                            <div class="flex items-center gap-2 p-2 bg-slate-50 rounded-xl"><span class="text-orange-600 font-black">1️⃣</span> Turnkey EPC Projects</div>
+                            <div class="flex items-center gap-2 p-2 bg-slate-50 rounded-xl"><span class="text-orange-600 font-black">2️⃣</span> Design & Engineering (3D)</div>
+                            <div class="flex items-center gap-2 p-2 bg-slate-50 rounded-xl"><span class="text-orange-600 font-black">3️⃣</span> Installation & Commissioning</div>
+                            <div class="flex items-center gap-2 p-2 bg-slate-50 rounded-xl"><span class="text-orange-600 font-black">4️⃣</span> Project Consulting</div>
+                            <div class="flex items-center gap-2 p-2 bg-slate-50 rounded-xl sm:col-span-2"><span class="text-orange-600 font-black">5️⃣</span> Online Paid Consultation (PM Surya Ghar, DCR, subsidy, technical)</div>
+                        </div>
+                        <p class="text-xs text-slate-500 mt-4">*For paid consultations, please message with detailed requirements.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- schemes -->
     <section id="schemes" class="py-20 sm:py-32 px-4 sm:px-6 bg-slate-900 relative overflow-hidden">
         <div class="max-w-7xl mx-auto relative z-10">
@@ -338,6 +434,7 @@
                 <a href="https://wa.me/9420531413" class="hover:text-white transition text-yellow-400">Review us On Google!</a>
             </div>
             <p class="text-[0.6rem] tracking-[0.3em] uppercase">© 2026 Crafted for sustainability</p>
+            <p class="text-xs text-stone-600 mt-4">📧 umarsolarnanded@gmail.com</p>
         </div>
     </footer>
 
@@ -468,11 +565,9 @@
 
         // slider image height update handled by CSS now, but keep resize for safety
         window.addEventListener('load', function() {
-            // CSS handles heights, but we ensure slider container uses correct class
+            // CSS handles heights
         });
     </script>
     <style>.px-4 { padding-left: max(1rem, env(safe-area-inset-left)); padding-right: max(1rem, env(safe-area-inset-right)); }</style>
 </body>
 </html>
-
-
