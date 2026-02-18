@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <title>Umar Solar | Maharashtra's Premium Solar Partner</title>
+    <title>Umar Solar | Consultation packages with time slots</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -92,6 +92,33 @@
         /* about section bullet styling */
         .about-bullet { @apply flex items-start gap-3 text-slate-700; }
         .about-bullet svg { @apply w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5; }
+
+        /* 30‑min interval slots */
+        .time-interval-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+            gap: 8px;
+            margin-top: 8px;
+        }
+        .time-chip {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 40px;
+            padding: 8px 6px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-align: center;
+            color: #334155;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+            transition: all 0.15s;
+            cursor: pointer;
+        }
+        .time-chip.selected {
+            background: #d97706;
+            color: white;
+            border-color: #d97706;
+            box-shadow: 0 6px 12px rgba(217,119,6,0.2);
+        }
     </style>
     <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -337,7 +364,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </section>
     
 
-    <!-- booking: expert session with responsive maps iframe -->
+    <!-- booking: expert session with requested packages + 30‑min time interval chips -->
     <section id="booking" class="py-20 sm:py-32 px-4 sm:px-6 bg-slate-50">
         <div class="max-w-6xl mx-auto flex flex-col lg:flex-row gap-6">
             <!-- LEFT: EXPERT SESSION -->
@@ -365,27 +392,50 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         <input type="text" id="cAddress" placeholder="Full address" class="p-3 bg-white/70 border border-slate-200 rounded-xl text-sm outline-none">
                     </div>
 
-                    <!-- CONSULTATION TYPE DROPDOWN with data-amount and data-tn -->
+                    <!-- CONSULTATION TYPE DROPDOWN (all packages) + extra hidden fields -->
                     <div class="bg-slate-100 p-4 rounded-xl space-y-2">
                         <label class="text-sm font-bold text-slate-800 block mb-1">Consultation type *</label>
                         <select id="consultTypeSelect" required class="w-full p-3 bg-white border border-slate-300 rounded-xl text-sm outline-none focus:ring-2 focus:ring-orange-500">
                             <option value="" disabled selected>– Select a consultation package –</option>
                             <option value="DCR Issue 700" data-amount="700" data-tn="DCR Issue">DCR Issue – ₹700</option>
-                            <option value="PM Suryaghar submission 700" data-amount="700" data-tn="PM Suryaghar submission">PM Suryaghar submission – ₹700</option>
+                            <option value="PM Suryaghar submission 700" data-amount="700" data-tn="PM Suryaghar submission">PM Suryaghar Application Issue – ₹700</option>
                             <option value="Learn Subsidy process 3000" data-amount="3000" data-tn="Subsidy process guide">Learn the complete Subsidy process – ₹3,000</option>
                             <option value="Vendor registration 3000" data-amount="3000" data-tn="Vendor registration">Vendor registration complete consultation – ₹3,000</option>
                             <option value="General issue 500" data-amount="500" data-tn="General discussion">General issue discuss (30min) – ₹500</option>
+                            <option value="Project Consultation technical 500 per kW" data-amount="500" data-tn="Project consultation">Project Consultation (Technical only) – ₹500 per kW</option>
+                            <option value="Google SketchUp 3D 1000" data-amount="1000" data-tn="SketchUp design">Google SketchUp 3D design – ₹1,000</option>
                         </select>
                     </div>
 
-                    <!-- time slots -->
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                        <select id="cSlot" required class="p-3 bg-white/70 border border-slate-200 rounded-xl text-sm outline-none">
-                            <option value="" disabled selected>Choose slot (morning/evening)</option>
-                            <option value="Morning 8-10">Morning 8:00 – 10:00</option>
-                            <option value="Evening 4-8">Evening 4:00 – 8:00</option>
-                        </select>
-                        <input type="date" id="cDate" required class="p-3 bg-white/70 border border-slate-200 rounded-xl text-sm outline-none">
+                    <!-- DATE + 30‑min interval time chips (morning & evening) -->
+                    <div class="space-y-2">
+                        <label class="text-sm font-bold text-slate-700">Preferred date *</label>
+                        <input type="date" id="cDate" required class="w-full p-3 bg-white/70 border border-slate-200 rounded-xl text-sm outline-none">
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="text-sm font-bold text-slate-700">Time slot (30‑min intervals) *</label>
+                        <div id="timeChipContainer" class="time-interval-grid">
+                            <!-- morning slots 08:00 to 11:30 -->
+                            <div class="time-chip" data-time="08:00-08:30">08:00–08:30</div>
+                            <div class="time-chip" data-time="08:30-09:00">08:30–09:00</div>
+                            <div class="time-chip" data-time="09:00-09:30">09:00–09:30</div>
+                            <div class="time-chip" data-time="09:30-10:00">09:30–10:00</div>
+                            <div class="time-chip" data-time="10:00-10:30">10:00–10:30</div>
+                            <div class="time-chip" data-time="10:30-11:00">10:30–11:00</div>
+                            <div class="time-chip" data-time="11:00-11:30">11:00–11:30</div>
+                            <div class="time-chip" data-time="11:30-12:00">11:30–12:00</div>
+                            <!-- evening slots 16:00 to 20:00 -->
+                            <div class="time-chip" data-time="16:00-16:30">16:00–16:30</div>
+                            <div class="time-chip" data-time="16:30-17:00">16:30–17:00</div>
+                            <div class="time-chip" data-time="17:00-17:30">17:00–17:30</div>
+                            <div class="time-chip" data-time="17:30-18:00">17:30–18:00</div>
+                            <div class="time-chip" data-time="18:00-18:30">18:00–18:30</div>
+                            <div class="time-chip" data-time="18:30-19:00">18:30–19:00</div>
+                            <div class="time-chip" data-time="19:00-19:30">19:00–19:30</div>
+                            <div class="time-chip" data-time="19:30-20:00">19:30–20:00</div>
+                        </div>
+                        <input type="hidden" id="selectedTimeSlot" name="selectedTimeSlot" value="">
                     </div>
 
                     <!-- PAY NOW (UPI) -->
@@ -491,6 +541,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             }
         }, 2000);
 
+        // time chip selection
+        const chipContainer = document.getElementById('timeChipContainer');
+        const hiddenTimeInput = document.getElementById('selectedTimeSlot');
+        document.querySelectorAll('.time-chip').forEach(chip => {
+            chip.addEventListener('click', function() {
+                document.querySelectorAll('.time-chip').forEach(c => c.classList.remove('selected'));
+                this.classList.add('selected');
+                hiddenTimeInput.value = this.getAttribute('data-time');
+            });
+        });
+
         // PAY NOW (UPI)
         const payNowBtn = document.getElementById('payNowBtn');
         const consultSelect = document.getElementById('consultTypeSelect');
@@ -501,12 +562,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
             const name = document.getElementById('cName').value.trim();
             const mobile = document.getElementById('cMobile').value.trim();
-            const slot = document.getElementById('cSlot').value;
+            const slotHidden = hiddenTimeInput.value;
             const date = document.getElementById('cDate').value;
             const selectedOption = consultSelect.options[consultSelect.selectedIndex];
 
-            if (!name || !mobile || !slot || !date) {
-                alert('Please fill name, mobile, slot and date');
+            if (!name || !mobile || !slotHidden || !date) {
+                alert('Please fill name, mobile, select date and time slot');
                 return;
             }
             if (!consultSelect.value) {
@@ -521,7 +582,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             window.location.href = upiLink;
         });
 
-        // SUBMIT PAYMENT RECEIPT (WhatsApp)
+        // SUBMIT PAYMENT RECEIPT (WhatsApp) – includes selected time chip
         submitReceiptBtn.addEventListener('click', function(e) {
             e.preventDefault();
 
@@ -534,11 +595,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             const address = document.getElementById('cAddress').value.trim() || '—';
             const consultType = consultSelect.options[consultSelect.selectedIndex]?.text || 'not selected';
             const amount = consultSelect.options[consultSelect.selectedIndex]?.getAttribute('data-amount') || '0';
-            const slot = document.getElementById('cSlot').value;
+            const slot = hiddenTimeInput.value || 'not selected';
             const date = document.getElementById('cDate').value;
 
             if (!name || !mobile || !slot || !date) {
-                alert('Please fill name, mobile, slot and date');
+                alert('Please fill name, mobile, date and time slot');
                 return;
             }
             if (!consultSelect.value) {
@@ -578,5 +639,3 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <style>.px-4 { padding-left: max(1rem, env(safe-area-inset-left)); padding-right: max(1rem, env(safe-area-inset-right)); }</style>
 </body>
 </html>
-
-
