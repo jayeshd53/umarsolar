@@ -53,7 +53,7 @@
         }
         @media (max-width:640px){ .team-circle { width: 90px; height: 90px; } }
 
-        .bank-logo {
+        .bank-logo, .brand-logo {
             height: 60px;
             width: auto;
             max-width: 120px;
@@ -63,7 +63,13 @@
             padding: 8px 14px;
             border-radius: 40px;
             border: 1px solid #e9e9e9;
+            transition: transform 0.2s ease, filter 0.2s ease;
         }
+        .brand-logo:hover {
+            transform: translateY(-3px);
+            filter: drop-shadow(0 6px 10px rgba(0,0,0,0.15));
+        }
+        
         .slider-img { min-width: 100%; object-fit: cover; filter: brightness(0.55); will-change: transform; display: block; }
         /* unified height control - no empty space below */
         .hero-slider-container { height: 100vh; max-height: 900px; }
@@ -343,12 +349,28 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </div>
     </section>
 
+    <section id="inverters" class="py-16 sm:py-20 px-4 bg-slate-50 border-t border-slate-200/60">
+        <div class="max-w-5xl mx-auto text-center">
+            <span class="text-orange-600 font-bold tracking-widest text-xs">PREMIUM HARDWARE</span>
+            <h2 class="text-3xl sm:text-5xl font-bold text-slate-900 mt-2 mb-8">Trusted Inverter Brands</h2>
+            <div class="flex flex-wrap justify-center items-center gap-6 sm:gap-10 mt-8" data-aos="fade-up">
+                <img class="brand-logo" src="https://support.opensolar.com/hc/article_attachments/8348869012239" alt="Solax Power">
+                <img class="brand-logo" src="https://www.ksolare.com/wp-content/uploads/2023/10/LOGO_page-0001.jpg" alt="KSolare">
+                <img class="brand-logo" src="https://media.licdn.com/dms/image/v2/D4D0BAQENE8GtOtaOjg/company-logo_200_200/company-logo_200_200/0/1722858782199?e=2147483647&v=beta&t=hUFvjn_EGcv-MlEKM8AQe8bdEi7W9qUryPEI6xIUJYs" alt="Xwatt">
+                <img class="brand-logo" src="https://d3nut88kxhmnud.cloudfront.net/2021/12/LOGO1-min.png" alt="UTL">
+                <img class="brand-logo" src="https://companieslogo.com/img/orig/POLYCAB.NS_BIG-75d2f870.png?t=1729362040" alt="Poycab">
+                <img class="brand-logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdAwrQZNY4bbPvyjWL-3I27MDkZixLTsU7RA&s" alt="Sungrow">
+                <img class="brand-logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvcTHd4vb3HlEgBSJpQd1LoKJD0gsEcxoa_A&s" alt="Waaree">
+            </div>
+        </div>
+    </section>
+
     <section id="loans" class="py-16 sm:py-20 px-4 bg-white">
         <div class="max-w-4xl mx-auto text-center">
             <span class="text-orange-600 font-bold tracking-widest text-xs">PARTNER BANKS</span>
             <h2 class="text-3xl sm:text-5xl font-bold text-slate-900 mt-2 mb-6">Easy finance options</h2>
             <div class="flex flex-wrap justify-center items-center gap-6 sm:gap-10 mt-8" data-aos="fade-up">
-                <img class="bank-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Sbi_logo.svg/1280px-Sbi_logo.svg.png" alt="SBI" onerror="this.src='https://via.placeholder.com/120x60?text=SBI'">
+                <img class="bank-logo" src="https://1000logos.net/wp-content/uploads/2018/03/SBI-Logo.jpg" alt="SBI" onerror="this.src='https://via.placeholder.com/120x60?text=SBI'">
                 <img class="bank-logo" src="https://upload.wikimedia.org/wikipedia/en/thumb/f/f2/BankOfBarodaLogo.svg/1280px-BankOfBarodaLogo.svg.png" alt="Bank of Baroda" onerror="this.src='https://via.placeholder.com/120x60?text=BoB'">
                 <img class="bank-logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThiManv9YoJJPlbn7XZkJ9znn_huarg5J9aA&s" alt="PNB" onerror="this.src='https://via.placeholder.com/120x60?text=PNB'">
                 <img class="bank-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Union_Bank_of_India_Logo.svg/1280px-Union_Bank_of_India_Logo.svg.png" alt="Union Bank of India" onerror="this.src='https://via.placeholder.com/120x60?text=Union+Bank'">
@@ -669,4 +691,3 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <style>.px-4 { padding-left: max(1rem, env(safe-area-inset-left)); padding-right: max(1rem, env(safe-area-inset-right)); }</style>
 </body>
 </html>
-
